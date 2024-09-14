@@ -32,7 +32,7 @@ musicPatterns = {
   
   "gangster paradise": lambda: webbrowser.open("https://youtu.be/fPO76Jlnz6c?si=eyufx3S1Hst2Cm4U"),
   
-  "gangster paradise": lambda: webbrowser.open("https://youtu.be/7wtfhZwyrcc?si=V8g_0olKyLqMS2aV"),
+  "meet": lambda: webbrowser.open("https://youtu.be/YzClUyBOQBM?si=DOQPWj_qrPuCYKbP"),
 
   "gangster bgm ": lambda: webbrowser.open("https://youtu.be/M67A7jmvQik?si=GE679P2wJdyG0-5q"),
 

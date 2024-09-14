@@ -8,6 +8,9 @@ import sympy as sp
 import time
 import pygetwindow as gw
 import pyautogui
+import requests
+from dotenv import load_dotenv
+import os
 
 # internal dependencies
 from appLibary import patterns 
@@ -21,6 +24,12 @@ engine = pyttsx3.init()
 
 # Get and list all voices
 voices = engine.getProperty('voices')
+
+# configuring dot env 
+load_dotenv()
+
+# defining news api key 
+newsAPIKey = "8c37d58220834131a28bfde36ffa922b"
 
 
 
@@ -51,6 +60,17 @@ def processCommand(command):
   if "exit" in command.lower():
       speak("exiting command ! goodbye")
       return"exit"
+  
+  if "news" in command.lower():
+    response = requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={os.getenv('NEWS__API_KEY')}")
+
+    if response.status_code ==200:
+        data = response.json()
+        articles = data.get('articles',[])
+
+        for article in articles:
+          speak(article['title'])
+
 
   elif "search for" in command.lower():
     search_web(command)
@@ -124,7 +144,7 @@ def listen():
         word = recgonizer.recognize_google(audio)
 
 
-      if(word.lower() == "baby"):
+      if(word.lower() == "alexa"):
         speak("yes i'm listening baby") 
         print("babe activated")
 
@@ -140,7 +160,7 @@ def listen():
 
 def find_youtube_tab():
     for window in gw.getAllWindows():
-        if "(175)" in window.title.lower():  # Case-insensitive check for "youtube"
+        if "(277)" in window.title.lower(): 
             print(f"Found potential YouTube window: {window.title}")
             return window
     return None

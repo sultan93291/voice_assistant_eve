@@ -10,6 +10,7 @@ patterns = {
     "open linkedin": lambda: webbrowser.open("https://www.linkedin.com"),
     "open instagram": lambda: webbrowser.open("https://www.instagram.com/"),
     "open figma": lambda: webbrowser.open("https://www.figma.com/"),
+   "open figma": lambda: webbrowser.open("https://chatgpt.com/"),
     
     # Windows specific applications
     "open edge": lambda: subprocess.Popen([r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]),

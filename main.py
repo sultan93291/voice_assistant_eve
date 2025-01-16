@@ -145,10 +145,11 @@ def listen():
 
 
       if(word.lower() == "alexa"):
-        speak("yes i'm listening baby") 
+        speak(" listening ") 
         print("babe activated")
 
         with sr.Microphone() as source:
+          
           audio = recgonizer.listen(source)
           command = recgonizer.recognize_google(audio)
           print(f"command recognized: {command}")
